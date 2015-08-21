@@ -1,0 +1,152 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="StaffMenu.master.cs" Inherits="StaffMenu" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+
+   
+    <title></title>
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+   
+       <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+<script type="text/jscript">
+
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            height: 21px;
+        }
+    </style>
+
+
+</head>
+<body>
+     
+    
+             
+             
+    <form id="Form1" runat="server">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+    <div class="page">
+        
+            <div class="title">
+                <h1 style="font-style: italic">
+                   &nbsp;<asp:Image ID="Image1" runat="server" Height="160px" ImageUrl="~/Images/images.jpg" Width="167px" />
+&nbsp; 
+   
+             
+                    <br /> Online Banking System
+                </h1>
+            </div>
+            <div class="loginDisplay">
+         
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Staff/StaffMenu.aspx" Text="Main Menu" Value="Main Menu"/>
+                        <asp:MenuItem Text="Deposite" Value="Deposite" NavigateUrl="~/Staff/DepositCheck.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Client Bills" Value="Bills" NavigateUrl="~/Staff/StaffClientBill.aspx">
+                            <asp:MenuItem Text="Pay" Value="Pay" NavigateUrl="~/Staff/StaffClientBill.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Add Bill" Value="Add Bill" NavigateUrl="~/Staff/StaffClientBillList.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Modify/Delete" Value="Modify/Delete" NavigateUrl="~/Staff/StaffClientModifyBill.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Transfer" Value="Transfer">
+                            <asp:MenuItem Text="My Account" Value="My Account" NavigateUrl="~/Staff/StaffClientAccountTransfer.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Another Person" Value="Another Person" NavigateUrl="~/Staff/StaffRecipientTransferList.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="My Recipents" Value="My Recipents" NavigateUrl="~/Staff/StaffMyrecipient.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Add/Modify" Value="Add/Modify" NavigateUrl="~/Staff/StaffAddPerson.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Staff/StaffClientSettings.aspx" Text="Client Profile setting" Value="Client Profile setting"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Staff/ClientCreditCard.aspx" Text="Client Credit Card" Value="Client Credit Card"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <table class="auto-style1">
+                <tr>
+                    <td style="text-align: right">
+            &nbsp;<asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Icon Images/setting.jpg" OnClick="ImageButton2_Click" style="text-align: right" />
+            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Icon Images/Logout.jpg" OnClick="ImageButton1_Click" style="text-align: right" />
+                    </td>
+                   
+                </tr>
+               
+            </table>
+            
+            <br />
+             <hr />
+            <br />
+            <table class="auto-style1">
+                <tr>
+                    <td style="text-align: left" class="auto-style2">
+            <asp:Label ID="LblWelcome" runat="server" Text="Welcome : " ForeColor="Red"></asp:Label>
+                    </td>
+                   
+                    <td style="text-align: left" class="auto-style2">
+                        &nbsp;</td>
+                   
+                </tr>
+               
+                <tr>
+                    <td style="text-align: left" class="auto-style2">
+                        &nbsp;</td>
+                   
+                    <td style="text-align: left" class="auto-style2">
+                        &nbsp;</td>
+                   
+                </tr>
+               
+                <tr>
+                    <td style="text-align: left" class="auto-style2">
+                        Client Debit Card number
+                    </td>
+                   
+                    <td style="text-align: left" class="auto-style2">
+                        <asp:TextBox ID="TxtMasterbox" runat="server" onkeypress="return isNumberKey(event)"  OnTextChanged="TextBox1_TextChanged" MaxLength="7" ></asp:TextBox>
+&nbsp;
+                        <asp:ImageButton ID="btnMasterButton" runat="server" Height="30px" ImageUrl="~/Icon Images/Search.jpg" OnClick="ImageButton3_Click" Width="35px" />
+                    &nbsp;
+                        <asp:ImageButton ID="ImageButton3" runat="server" height="30px" ImageUrl="~/Icon Images/x.jpg" OnClick="ImageButton3_Click1" width="35px" />
+                    </td>
+                   
+                </tr>
+               
+            </table>
+             <asp:Label ID="LblMasterError" runat="server" ForeColor="#CC0000" Text="Label" Visible="False"></asp:Label>
+             <br />
+            <hr />
+            <br />
+          
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+       
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    </div>
+    </form>
+              
+
+</body>
+</html>

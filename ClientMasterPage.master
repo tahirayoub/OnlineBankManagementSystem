@@ -1,0 +1,117 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ClientMasterPage.master.cs" Inherits="ClientMasterPage" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+           
+   
+
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            height: 21px;
+        }
+    </style>
+
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <div class="page">
+            <div class="title">
+                <h1 style="font-style: italic">
+                   &nbsp;<asp:Image ID="Image1" runat="server" Height="160px" ImageUrl="~/Images/images.jpg" Width="167px" />
+&nbsp;
+                    <br /> Online Banking System
+                </h1>
+            </div>
+            <div class="loginDisplay">
+         
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Client/MainMenu.aspx" Text="Main Menu" Value="Main Menu"/>
+                        <asp:MenuItem Text="Overview" Value="Overview" NavigateUrl="~/Client/MainMenu.aspx">
+                            <asp:MenuItem Text="Credit Card Overview" Value="Credit Card Overview" NavigateUrl="~/Client/ClientCreditCardRequest.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Deposite" Value="Deposite" NavigateUrl="~/Client/Deposite.aspx">
+                            <asp:MenuItem NavigateUrl="~/Client/DepositHistory.aspx" Text="Deposit History" Value="Deposit History"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Bills" Value="Bills" NavigateUrl="~/Client/Bill.aspx">
+                            <asp:MenuItem Text="Pay" Value="Pay" NavigateUrl="~/Client/Bill.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Add Bill" Value="Add Bill" NavigateUrl="~/Client/BillList.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Modify/Delete" Value="Modify/Delete" NavigateUrl="~/Client/ModifyBill.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Past Payments" Value="Past Payments" NavigateUrl="~/Client/PastPayments.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Transfer" Value="Transfer">
+                            <asp:MenuItem Text="My Account" Value="My Account" NavigateUrl="~/Client/AccountTransfer.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Another Person" Value="Another Person">
+                                <asp:MenuItem Text="Pay" Value="Pay" NavigateUrl="~/Client/RecipientTransferList.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="History" Value="History" NavigateUrl="~/Client/TransferHistory.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="My Recipents" Value="My Recipents" NavigateUrl="~/Client/Myrecipient.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Add Recipient" Value="Add Recipient" NavigateUrl="~/Client/AddPerson.aspx"></asp:MenuItem>
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Investment" Value="Investment" NavigateUrl="~/Client/Investment.aspx">
+                            <asp:MenuItem NavigateUrl="~/Client/InvestmentProgress.aspx" Text="Check Progress" Value="Check Progress"></asp:MenuItem>
+                            <asp:MenuItem Text="Withdraw Investment" Value="Withdraw Investment" NavigateUrl="~/Client/WithDrawInvestment.aspx"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Client/InvestmentStatement.aspx" Text="Investment Statement" Value="Investment Statement"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Client/withdrawCash.aspx" Text="WithDraw" Value="WithDraw"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Client/ClientStatement.aspx" Text="Statement" Value="Statement"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <table class="auto-style1">
+                <tr>
+                    <td style="text-align: right">
+            &nbsp;<asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Icon Images/setting.jpg" OnClick="ImageButton2_Click" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Icon Images/Logout.jpg" OnClick="ImageButton1_Click" style="text-align: right" height="72px" width="72px" />
+                    </td>
+                   
+                </tr>
+               
+            </table>
+            
+            <br />
+             <hr />
+            <br />
+            <table class="auto-style1">
+                <tr>
+                    <td style="text-align: left" class="auto-style2">
+            <asp:Label ID="LblWelcome" runat="server" Text="Welcome : " ForeColor="Red"></asp:Label>
+                    </td>
+                   
+                </tr>
+               
+            </table>
+             <br />
+            <hr />
+            <br />
+          
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+             
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

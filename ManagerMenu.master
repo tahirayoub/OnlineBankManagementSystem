@@ -1,0 +1,91 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ManagerMenu.master.cs" Inherits="ManagerMenu" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+   
+       <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+<script type="text/javascript" src="DropCalendar.js"></script>
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            height: 21px;
+        }
+    </style>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <div class="page">
+        
+            <div class="title">
+                <h1 style="font-style: italic">
+                   &nbsp;<asp:Image ID="Image1" runat="server" Height="160px" ImageUrl="~/Images/images.jpg" Width="167px" />
+&nbsp;
+                    <br /> Online Banking System
+                </h1>
+            </div>
+            <div class="loginDisplay">
+         
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Manager/ManagerMenu.aspx" Text="Main Menu" Value="Main Menu"/>
+                        <asp:MenuItem Text="Staff" Value="Staff">
+                            <asp:MenuItem NavigateUrl="~/Manager/AddStaff.aspx" Text="Add Staff" Value="Add Manager"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Manager/ManagerStaffUpdate.aspx" Text="Staff Profile Update" Value="Staff Profile Update"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <table class="auto-style1">
+                <tr>
+                    <td style="text-align: right">
+            &nbsp;
+            <asp:ImageButton ID="ImgSettings" runat="server" ImageUrl="~/Icon Images/setting.jpg" OnClick="ImgSettings_Click" style="text-align: right" />
+            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Icon Images/Logout.jpg" OnClick="ImageButton1_Click" style="text-align: right" />
+                    </td>
+                   
+                </tr>
+               
+            </table>
+            
+            <br />
+             <hr />
+            <br />
+            <table class="auto-style1">
+                <tr>
+                    <td style="text-align: left" class="auto-style2">
+            <asp:Label ID="LblWelcome" runat="server" Text="Welcome : " ForeColor="Red"></asp:Label>
+                    </td>
+                   
+                </tr>
+               
+            </table>
+             <br />
+            <hr />
+            <br />
+          
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+             
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
