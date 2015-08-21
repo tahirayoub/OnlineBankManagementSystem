@@ -16,7 +16,7 @@
     <br />
 
 
-   <h1>Online Banking System</h1> 
+   <h1>Online Bank Management System</h1> 
      <br /> 
      <hr />
     <br />
